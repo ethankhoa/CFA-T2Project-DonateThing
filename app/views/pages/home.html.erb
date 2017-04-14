@@ -6,7 +6,7 @@
         <nav class="nav">
           <div class="container">
             <div class="nav-left">
-              <a class="nav-item" href="../home.html">
+              <a class="nav-item" href="<%= root_path %>">
                 <img src="../images/bulma-white.png" alt="Description">
               </a>
             </div>
@@ -16,22 +16,13 @@
               <span></span>
             </span>
             <div class="nav-right nav-menu">
-              <a class="nav-item">
-                About
-              </a>
-              <a class="nav-item">
-                Tour
-              </a>
-              <a class="nav-item">
-                FAQ
-              </a>
-              <a class="nav-item">
-                Contact
-              </a>
+              <%= link_to 'About', pages_about_path, class: "nav-item" %>
+              <%= link_to 'Contact', pages_contact_path, class: "nav-item" %>
               <span class="nav-item">
-                <a class="button is-default">
-                  Get Early Access
-                </a>
+                <%= link_to 'Sign Up', new_user_registration_path, class: "button is-default" %>
+              </span>
+              <span class="nav-item">
+                <%= link_to 'Sign In', new_user_session_path, class: "button is-default" %>
               </span>
             </div>
           </div>
