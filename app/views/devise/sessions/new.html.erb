@@ -1,26 +1,54 @@
-<h2>Log in</h2>
+<body>
+  <section class="hero is-fullheight is-dark is-bold">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-vcentered">
+          <div class="column is-4 is-offset-4">
+            <h1 class="title">
+              Login
+            </h1>
+            <div class="box">
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <label class="label">Email</label>
+              <p class="control">
+                <%= f.email_field :email, class: "input", autofocus: true %>
+              </p>
+              <label class="label">Password</label>
+              <p class="control">
+                <%= f.password_field :password, class: "input", autocomplete: "off" %>
+              </p>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+              <% if devise_mapping.rememberable? -%>
+                <div class="field">
+                  <p class="control">
+                    <label class="label checkbox">
+                      <%= f.check_box :remember_me, class: "checkbox" %>
+                      Remember me
+                    </label>
+                  </p>
+                </div>
+              <% end -%>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+              <hr>
+              <p class="control">
+                <div class="actions">
+                  <%= f.submit "Login", class: "button is-primary" %>
+                  <button class="button is-default">Cancel</button>
+                </div>
+              <% end %>
+              </p>
+            </div>
+            <p class="has-text-centered">
+              <%= render "devise/shared/links" %>
+              <%= link_to 'Need help?', pages_contact_path %>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
-  <% end -%>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+  </section>
 
-<%= render "devise/shared/links" %>
+
+</body>
