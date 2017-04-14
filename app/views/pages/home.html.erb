@@ -40,7 +40,8 @@
     </div>
 
     <div class="hero-body">
-      <div class="container has-text-centered">
+      <div class="container">
+        <div class="container has-text-centered">
         <div class="columns is-vcentered">
           <div class="column is-5">
             <figure class="image is-4by3">
@@ -55,16 +56,20 @@
               If you have a food drive code enter it below.
             </h2>
             <br>
-            <p class="control has-addons has-text-centered">
-              <input class="input is-expanded is-large" type="text" placeholder="Join the movement, you@example.org">
-              <a class="button is-large is-danger is-outlined">
-                Sign Up
-              </a>
-            </p>
+            <div class="field is-grouped">
+              <p class="control is-expanded has-addons has-text-centered">
+                <input class="input is-expanded is-large" type="text" placeholder="Join the movement">
+              </p>
+              <p class="control">
+                <%= link_to 'Join', root_path, class: "button is-large is-danger is-outlined" %>
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+
 
     <div class="hero-foot">
       <div class="container">
