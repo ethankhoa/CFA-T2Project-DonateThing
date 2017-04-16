@@ -1,4 +1,7 @@
 class PagesController < ApplicationController
+  before_action :set_current_user, only: [:dashboard]
+
+
   def home
   end
 
@@ -10,4 +13,11 @@ class PagesController < ApplicationController
 
   def dashboard
   end
+
+  private
+
+  def set_current_user
+    @user = current_user
+  end
+
 end
