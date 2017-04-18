@@ -1,4 +1,3 @@
 class Address < ApplicationRecord
-  belongs_to :user
-  belongs_to :org
+  belongs_to :addressable, :polymorphic => true
 end
