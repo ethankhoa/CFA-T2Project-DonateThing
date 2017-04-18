@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170418051932) do
+ActiveRecord::Schema.define(version: 20170418053019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: :cascade do |t|
+    t.string   "line_1"
+    t.string   "line_2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "postcode"
+    t.string   "country"
+    t.string   "telephone"
+    t.integer  "user_id"
+    t.integer  "org_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["org_id"], name: "index_addresses_on_org_id", using: :btree
+    t.index ["user_id"], name: "index_addresses_on_user_id", using: :btree
+  end
 
   create_table "orgs", force: :cascade do |t|
     t.string   "name"
@@ -52,5 +68,7 @@ ActiveRecord::Schema.define(version: 20170418051932) do
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
   end
 
+  add_foreign_key "addresses", "orgs"
+  add_foreign_key "addresses", "users"
   add_foreign_key "orgs", "users"
 end
