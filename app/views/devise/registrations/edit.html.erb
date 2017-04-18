@@ -14,46 +14,54 @@
                <p class="control">
                <%= f.email_field :email, class: "input", autofocus: true %>
               </p>
+            </br>
 
 
               <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
               <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
               <% end %>
 
-              <label class="label">Password<br/>
+              <label class="label">New Password<br/>
                 <i>(leave blank if you don't want to change it)</i>
               </label>
-              <br />
-                <%= f.password_field :password, class: "input", autocomplete: "off" %>
-                <% if @minimum_password_length %>
-                <br />
-                <em><%= @minimum_password_length %> characters minimum</em>
+              <% if @minimum_password_length %>
+              <p class="control">
+                <%= f.password_field :password, class: "input", placeholder: "#{@minimum_password_length} characters minimum", autocomplete: "off" %>
                 <% end %>
+              </p>
+              </br>
+                <label class="label">Confirm New Password</label>
+                <p class="control">
+                  <%= f.password_field :password_confirmation, class: "input", autocomplete: "off" %>
+                </p>
+                </br>
+                <label class="label">Current Password<br/>
+                  <i>(please enter your current password to confirm your changes)</i>
+                </label>
+                <p class="control">
+                  <%= f.password_field :current_password, class: "input", autocomplete: "off" %>
+                </p>
+              </br>
+                <p class="control">
+                  <p class="actions">
+                    <%= f.submit "Update", class: "button is-primary" %>
+                  </p>
+                  <% end %>
+                </p>
+                </div>
+                <div class="box">
+           <p class="has-text-centered">
+             <h3 class="label">Cancel my account</h3>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-</div>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
-  </div>
-</div>
-</div>
-</div>
-
+              <p class="control">
+                <div class="actions">
+                <%= link_to "Cancel my account", registration_path(resource_name), class: "button is-danger", data: { confirm: "Are you sure?" }, method: :delete %>
+                <button class="button is-default"><%= link_to "Back", :back %></button>
+              </div>
+              </p>
+              </div>
+           </div>
+         </div>
+       </div>
+     </div>
 </section>
