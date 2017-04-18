@@ -10,9 +10,9 @@
             </h1>
             <div class="box">
               <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-              <label class="label">Email</label>
+              <label class="label">Login</label>
               <p class="control">
-                <%= f.email_field :email, class: "input", autofocus: true %>
+                <%= f.text_field :login, class: "input", autofocus: true %>
               </p>
               <label class="label">Password</label>
               <p class="control">
