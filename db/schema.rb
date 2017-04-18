@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170418074621) do
+ActiveRecord::Schema.define(version: 20170418080730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,8 +25,10 @@ ActiveRecord::Schema.define(version: 20170418074621) do
     t.string   "telephone"
     t.integer  "user_id"
     t.integer  "org_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "addressable_id"
+    t.string   "addressable_type"
     t.index ["org_id"], name: "index_addresses_on_org_id", using: :btree
     t.index ["user_id"], name: "index_addresses_on_user_id", using: :btree
   end
