@@ -16,7 +16,7 @@
                   <a href="#"><%= @user.name %></a>
                 </div>
                 <span>
-                  <a href="#">@<span>jsmith</span></a>
+                  <a href="#">@<span><%= @user.username %></span></a>
                 </span>
               </div>
 
@@ -45,6 +45,9 @@
             </div>
           </div>
           <div class="spacer"></div>
+          <div class="box">
+            <%= render 'partials/aside/user' %>
+          </div>
           <div class="box trending">
             <p class="trend-title"><span class="title is-5">Trends</span> · <a href="#">change</a></p>
             <p class="trend-hashtag"><a href="#">#hashtag1</a><br>13k statuses</p>
