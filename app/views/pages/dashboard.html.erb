@@ -61,7 +61,14 @@
         <div class="column is-6">
           <div class="notification is-danger">
             <button class="delete" onclick="((this).parentNode.remove())"></button>
-            This template is not yet finished, it may change. Please check the readme for more information.
+            You have a pick up coming soon. If you need to make adjustments please contact your local food pantry.
+          </div>
+          <div class="box">
+            <% if @user.orgs.any? %>
+            <%= link_to "#{@user.orgs.first.name}", org_dashboard_path(org_id: @user.orgs.first.id) %>
+            <%= @user.orgs.first.name %>
+            <%= @user.orgs.first.id %>
+            <% end %>
           </div>
           <div class="box">
             <article class="media">

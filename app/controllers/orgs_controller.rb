@@ -1,5 +1,6 @@
 class OrgsController < ApplicationController
   before_action :set_org, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /orgs
   # GET /orgs.json
@@ -10,6 +11,10 @@ class OrgsController < ApplicationController
   # GET /orgs/1
   # GET /orgs/1.json
   def show
+  end
+
+  def dashboard
+    @org = Org.find(params[:org_id])
   end
 
   # GET /orgs/new
@@ -71,4 +76,5 @@ class OrgsController < ApplicationController
     def org_params
       params.require(:org).permit(:name, :org_type, :phone, :website, :logo, :images, :user_id, :googleplaceid)
     end
+
 end

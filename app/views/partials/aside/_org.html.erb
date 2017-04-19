@@ -10,14 +10,12 @@
     Administration
   </p>
   <ul class="menu-list">
-    <% if @user.orgs.any? %>
     <li>
       Manage Your Orgs
       <ul>
-        <li><%= link_to "#{@user.orgs.first.name}", org_dashboard_path(org_id: @user.orgs.first.id) %></li>
+        <li>NOPE<li>
       </ul>
     </li>
-    <% end %>
     <li>
     <a>Account Settings</a>
     <ul>
