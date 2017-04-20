@@ -20,6 +20,7 @@ class OrgsController < ApplicationController
   # GET /orgs/new
   def new
     @org = Org.new
+    @org.address = Address.new
   end
 
   # GET /orgs/1/edit
