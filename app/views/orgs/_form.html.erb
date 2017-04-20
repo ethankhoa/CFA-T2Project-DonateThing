@@ -1,0 +1,57 @@
+<%= form_for(org) do |f| %>
+  <% if org.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(org.errors.count, "error") %> prohibited this org from being saved:</h2>
+
+      <ul>
+      <% org.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :org_type %>
+    <%= f.text_field :org_type %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone %>
+    <%= f.text_field :phone %>
+  </div>
+
+  <div class="field">
+    <%= f.label :website %>
+    <%= f.text_field :website %>
+  </div>
+
+  <div class="field">
+    <%= f.label :logo %>
+    <%= f.text_field :logo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :images %>
+    <%= f.text_field :images %>
+  </div>
+
+  <div class="field">
+    <%= f.label :user_id %>
+    <%= f.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :google_place %>
+    <%= f.text_field :googleplaceid %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

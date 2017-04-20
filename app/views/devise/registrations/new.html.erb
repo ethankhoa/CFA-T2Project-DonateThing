@@ -12,11 +12,11 @@
 
              <label class="label">Name</label>
              <p class="control">
-               <input class="input" type="text" placeholder="John Smith">
+               <%= f.text_field :name, class: "input", placeholder: "John Smith", autofocus: true %>
              </p>
              <label class="label">Email</label>
              <p class="control">
-               <%= f.email_field :email, class: "input", placeholder: "jsmith@example.org", autofocus: true %>
+               <%= f.email_field :email, class: "input", placeholder: "jsmith@example.org" %>
              </p>
              <label class="label">Username</label>
              <p class="control">

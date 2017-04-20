@@ -10,32 +10,29 @@
     Administration
   </p>
   <ul class="menu-list">
-    <% if @user.orgs.any? %>
     <li>
       Manage Your Orgs
       <ul>
-        <li><%= link_to "#{@user.orgs.first.name}", org_dashboard_path(org_id: @user.orgs.first.id) %></li>
+        <li>NOPE<li>
       </ul>
     </li>
-    <% end %>
     <li>
-      <a>Manage Your Pantry</a>
+    <a>Account Settings</a>
+    <ul>
+      <li><a>View all items</a></li>
+      <li><a>Add an item</a></li>
+      <li><a>Add a member</a></li>
+    </ul>
+    <li>
+      <a class="is-active">Manage Your Pantry</a>
       <ul>
         <li><a>View all items</a></li>
         <li><a>Add an item</a></li>
         <li><a>Add a member</a></li>
       </ul>
     </li>
-
-    <li>
-    <a>Account Settings</a>
-    <ul>
-      <li><%= link_to "Profile", current_user %></li>
-      <li><a>View your profile</a></li>
-      <li><a>Edit your account settings</a></li>
-      <li><%= link_to "Change your password", edit_user_registration_path %></li>
-    </ul>
-    </li>
+    <li><a>Invitations</a></li>
+    <li><a>Get help</a></li>
   </ul>
   <p class="menu-label">
     Transactions

@@ -1,0 +1,102 @@
+<%= render 'partials/nav/user' %>
+</br>
+  <div class="container is-fluid">
+    <div class="columns">
+      <div class="column is-3 is-fullheight is-hidden-mobile">
+        <div class="card is-fullwidth">
+          <header class="card-header">
+            <img src="https://thestaplesbag.org.au/wp-content/uploads/2016/10/StaplesBag_logotype_rgb_rev.jpg">
+          </header>
+          <div class="card-content">
+            <div class="card-user">
+              <div class="card-user-name">
+                <a href="#"><%= @org.name %></a>
+              </div>
+              <span>
+                <span>Admin Dashboard</span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="spacer"></div>
+
+        <div class="box">
+          <%= render 'partials/aside/org' %>
+        </div>
+      </div>
+      <div class="column is-9 admin-panel">
+        <div class="columns is-multiline is-mobile">
+          <div class="column is-12">
+
+            <div class="box">
+              <!-- Hero content: will be in the middle -->
+
+              <!-- Hero footer: will stick at the bottom -->
+              <nav class="level">
+                <div class="level-item has-text-centered">
+                  <p class="heading">Donations</p>
+                  <p class="title">3,456</p>
+                </div>
+                <div class="level-item has-text-centered">
+                  <p class="heading">Pickups</p>
+                  <p class="title">123</p>
+                </div>
+                <div class="level-item has-text-centered">
+                  <p class="heading">Dropoffs</p>
+                  <p class="title">456K</p>
+                </div>
+                <div class="level-item has-text-centered">
+                  <p class="heading">Likes</p>
+                  <p class="title">789</p>
+                </div>
+              </nav>
+            </div>
+          </div>
+          <div class="column is-12">
+
+            <div class="box">
+              <%= @org.inspect %>
+            </div>
+          </div>
+
+          <div class="column is-half">
+            <div class="panel">
+              <p class="panel-heading">
+               Notifications
+             </p>
+             <div class="panel-block is-wrapped">
+              <div class="is-fullwidth notification is-warning">
+                <button class="delete" onclick="((this).parentNode.remove())"></button>
+                <strong>Bob in Chatswood has requested a pickup. You can view Bob's bag and location here. </strong>
+                <br>
+                <small>1h ago | via: system</small>
+              </div>
+              <div class="is-fullwidth notification is-success">
+                <button class="delete" onclick="((this).parentNode.remove())"></button>
+                <strong>John has dropped off his donation bag. You can view his bag here. </strong>
+                <br>
+                <small>2h ago | via: system</small>
+              </div>
+              <div class="is-fullwidth notification is-success">
+                <button class="delete" onclick="((this).parentNode.remove())"></button>
+                <strong>Nadia has completed a dropped off. Nadia has completed multiple donations.</strong>
+                <br>
+                <small>1d ago | via: system</small>
+              </div>
+              <div class="is-fullwidth notification is-primary">
+                <button class="delete" onclick="((this).parentNode.remove())"></button>
+                <strong>Stuff with more stuff needs to happend because we need stuff.</strong>
+                <br>
+                <small>1d ago | via: system</small>
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="column is-half">
+            <%= render 'partials/messaging/org' %>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>

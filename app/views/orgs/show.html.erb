@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @org.name %>
+</p>
+
+<p>
+  <strong>Org type:</strong>
+  <%= @org.org_type %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @org.phone %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @org.website %>
+</p>
+
+<p>
+  <strong>Logo:</strong>
+  <%= @org.logo %>
+</p>
+
+<p>
+  <strong>Images:</strong>
+  <%= @org.images %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @org.user.inspect %>
+</p>
+
+<p>
+  <strong>Googleplaceid:</strong>
+  <%= @org.googleplaceid %>
+</p>
+
+<%= link_to 'Edit', edit_org_path(@org) %> |
+<%= link_to 'Back', orgs_path %>
