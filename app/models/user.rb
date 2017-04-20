@@ -11,7 +11,6 @@ class User < ApplicationRecord
 
   def create_address
     @user.address = Address.new if @user.address.nil?
-    @user.address.id = current_user.id
 
   end
 

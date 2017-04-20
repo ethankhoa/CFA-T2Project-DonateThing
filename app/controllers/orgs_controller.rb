@@ -31,7 +31,6 @@ class OrgsController < ApplicationController
   # POST /orgs.json
   def create
     @org = Org.new(org_params)
-    @org.address.id = @org.id
 
     respond_to do |format|
       if @org.save

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
   end
 
-resources :users
+  resources :users
 
   authenticated :user do
     root 'pages#dashboard', as: :authenticated_root
