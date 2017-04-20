@@ -5,3 +5,7 @@ end
 def address_check
   current_user.address.line_1.nil?
 end
+
+def phone_check
+  current_user.address.telephone.nil?
+end

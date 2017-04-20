@@ -1,4 +1,4 @@
-<h3 class="title">Address</h3>
+<h3 class="title">Contact Details</h3>
 
 <h3 class="subtitle">Current Address</h3>
 <% if address_check %>
@@ -44,8 +44,16 @@ HEY man! Are you homeless? Update your address!
         </p>
   </br>
   <p class="actions">
-    <%= f.submit "Save Address", class: "button is-primary" %>
+    <%= f.submit "Update", class: "button is-primary" %>
+    <%= link_to "Cancel", root_path, class: "button is-alert" %>
   </p>
+<% end %>
+
+<hr>
+<h3 class="subtitle">Current Phone Number</h3>
+<% if phone_check %>
+I KNOW YOU HAVE A CELL PHONE, UPDATE YOUR PHONE NUMBER
+<% else %>
 <% end %>
 
 <%= form_for :address do |f| %>
@@ -54,5 +62,8 @@ HEY man! Are you homeless? Update your address!
   <p class="control">
     <%= f.text_area :phone, class: "input" %>
   </p>
-    <%= f.submit "Save Phone", class: "button is-primary" %>
+</br>
+    <%= f.submit "Update", class: "button is-primary" %>
+    <%= link_to "Cancel", root_path, class: "button is-alert" %>
+
   <% end %>
