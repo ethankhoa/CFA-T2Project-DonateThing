@@ -7,6 +7,14 @@ class User < ApplicationRecord
   has_one :address, :as => :addressable
   has_many :orgs
 
+  after_create :create_address
+
+  def create_address
+    @user.address = Address.new if @user.address.nil?
+    @user.address.id = current_user.id
+
+  end
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
