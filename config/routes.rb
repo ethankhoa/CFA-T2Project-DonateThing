@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :users
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :orgs do
@@ -9,6 +8,8 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" } do
     delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
   end
+
+resources :users
 
   authenticated :user do
     root 'pages#dashboard', as: :authenticated_root

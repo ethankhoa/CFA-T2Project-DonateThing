@@ -1,2 +1,45 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<%= render 'partials/nav/user' %>
+<div class="container is-fluid profile">
+  <div class="section profile-heading">
+    <div class="columns is-multiline">
+      <div class="column is-2">
+        <div class="image is-128x128 avatar">
+          <img src="https://placehold.it/256x256">
+        </div>
+      </div>
+      <div class="column is-4 name">
+        <p>
+          <span class="title is-bold"><%= @user.name %></span>
+          <span class="button is-primary is-outlined follow">Message</span>
+        </p>
+        <p class="tagline">Hi, this is where I will put a users description or bio or info. </p>
+      </div>
+      <div class="column is-2 followers has-text-centered">
+          <p class="stat-val">129k</p>
+          <p class="stat-key">saved</p>
+        </div>
+        <div class="column is-2 following has-text-centered">
+          <p class="stat-val">2k</p>
+          <p class="stat-key">saved</p>
+        </div>
+        <div class="column is-2 likes has-text-centered">
+          <p class="stat-val">29</p>
+          <p class="stat-key">donations</p>
+        </div>
+    </div>
+
+  </div>
+  <div class="profile-options">
+      <div class="tabs is-fullwidth">
+        <ul>
+          <li class="link is-active"><a><span class="icon"><i class="fa fa-shopping-bag"></i></span> <span> Bags</span></a></li>
+          <li class="link"><a><span class="icon"><i class="fa fa-heart"></i></span> <span> Following</span></a></li>
+          <li class="link"><a><span class="icon"><i class="fa fa-th"></i></span> <span> Donations</span></a></li>
+          <li class="link"><a><span class="icon"><i class="fa fa-bookmark"></i></span> <span> Bookmarks</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="box">
+
+    </div>
+</div>
