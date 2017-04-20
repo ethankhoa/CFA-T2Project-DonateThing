@@ -24,19 +24,19 @@
                 <ul class="card-stats-list">
                   <li class="card-stats-item">
                     <a href="#" title="9.840 Tweet">
-                      <span class="card-stats-key">Tweets</span>
+                      <span class="card-stats-key">Donations</span>
                       <span class="card-stats-val">1</span>
                     </a>
                   </li>
                   <li class="card-stats-item">
                     <a href="#/following" title="885 Following">
-                      <span class="card-stats-key">Following</span>
+                      <span class="card-stats-key">Items</span>
                       <span class="card-stats-val">0</span>
                     </a>
                   </li>
                   <li class="card-stats-item">
                     <a href="#">
-                      <span class="card-stats-key">Followers</span>
+                      <span class="card-stats-key">Friends</span>
                       <span class="card-stats-val">0</span>
                     </a>
                   </li>
@@ -69,6 +69,7 @@
             <%= @user.orgs.first.name %>
             <%= @user.orgs.first.id %>
             <% end %>
+            <%= render 'partials/shared/address' %>
           </div>
           <div class="box">
             <nav class="level">
