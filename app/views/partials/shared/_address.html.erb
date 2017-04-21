@@ -1,16 +1,17 @@
 <h3 class="title">Contact Details</h3>
 
-<h3 class="subtitle">Current Address</h3>
+<h3 class="subtitle">Current Details</h3>
 <% if address_check %>
 HEY man! Are you homeless? Update your address!
 <% else %>
-<%= @user.address.line_1 %>
-<%= @user.address.line_2 %>
+<p>
+<%= @user.address.line_1 %></br>
+<%= @user.address.line_2.html_safe + tag(:br) unless @user.address.line_2.nil?%>
 <%= @user.address.city %>
 <%= @user.address.state %>
-<%= @user.address.postcode %>
-
-
+<%= @user.address.postcode %></br>
+  T: <%= @user.address.telephone %></br>
+</p>
 <% end %>
 </br>
 
@@ -54,6 +55,7 @@ HEY man! Are you homeless? Update your address!
 <% if phone_check %>
 I KNOW YOU HAVE A CELL PHONE, UPDATE YOUR PHONE NUMBER
 <% else %>
+<%= @user.address.telephone %>
 <% end %>
 
 <%= form_for :address do |f| %>
