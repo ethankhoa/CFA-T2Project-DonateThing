@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
 
+  resource :cart, only: [:show]
+  resources :order_items, only: [:create, :update, :destroy]
+
+  get 'bag_items/create'
+
+  get 'bag_items/update'
+
+  get 'bag_items/destroy'
+
   get 'bags/show'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
