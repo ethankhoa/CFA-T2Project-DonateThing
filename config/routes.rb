@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'bags/show'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :orgs do
     get 'dashboard'

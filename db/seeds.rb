@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+BagStatus.delete_all
+BagStatus.create! id: 1, name: "In Progress"
+BagStatus.create! id: 2, name: "Ready"
+BagStatus.create! id: 3, name: "Complete"
+BagStatus.create! id: 4, name: "Cancelled"

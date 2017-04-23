@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170423100227) do
+ActiveRecord::Schema.define(version: 20170423132715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,11 +33,28 @@ ActiveRecord::Schema.define(version: 20170423100227) do
     t.index ["user_id"], name: "index_addresses_on_user_id", using: :btree
   end
 
+  create_table "bag_items", force: :cascade do |t|
+    t.integer  "bag_id"
+    t.integer  "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bag_id"], name: "index_bag_items_on_bag_id", using: :btree
+  end
+
+  create_table "bag_statuses", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "bags", force: :cascade do |t|
     t.string   "item"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "bag_status_id"
+    t.integer  "total_items"
+    t.index ["bag_status_id"], name: "index_bags_on_bag_status_id", using: :btree
     t.index ["user_id"], name: "index_bags_on_user_id", using: :btree
   end
 
@@ -81,6 +98,8 @@ ActiveRecord::Schema.define(version: 20170423100227) do
 
   add_foreign_key "addresses", "orgs"
   add_foreign_key "addresses", "users"
+  add_foreign_key "bag_items", "bags"
+  add_foreign_key "bags", "bag_statuses"
   add_foreign_key "bags", "users"
   add_foreign_key "orgs", "users"
 end

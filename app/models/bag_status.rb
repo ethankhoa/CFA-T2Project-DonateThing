@@ -1,0 +1,2 @@
+class BagStatus < ApplicationRecord
+end
