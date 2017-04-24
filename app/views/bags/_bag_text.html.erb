@@ -1,1 +1,1 @@
-<%= link_to "#{current_bag.bag_items.size} Items in Bag ( #{current_bag.total_items} )", cart_path, class: "button" %>
+You currently have <%= current_bag.bag_items.size %> items in your donation bag <%= link_to "Add Stuff", bag_path, class: "button is-primary" %>

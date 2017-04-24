@@ -9,8 +9,10 @@
 <% end %>
 <% if @bag_items.size == 0 %>
   <p class="text-center">
-    There are no items in your donation bag.  Please <%= link_to "go back", root_path %> and add some items to your donation bag.
+    There are no items in your donation bag.  Please  and add some items to your donation bag.
   </p>
+  <%= link_to "Go Back", root_path, class: "button" %>
+
 <% else %>
   <% @bag_items.each do |bag_item| %>
     <%= render 'bag/bag_row', bag_item: bag_item, show_total: true %>

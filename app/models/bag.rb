@@ -3,7 +3,7 @@ class Bag < ApplicationRecord
   belongs_to :bag_status
 
   has_many :bag_items
-  before_create :set_order_status
+  before_create :set_bag_status
   before_save :update_itemtotal
 
   def itemtotal
@@ -16,7 +16,7 @@ class Bag < ApplicationRecord
   end
 
   def update_itemtotal
-  self[:bagtotal] = total_items
+  self[:itemtotal] = total_items
   end
 
 end
