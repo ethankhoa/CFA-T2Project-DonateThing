@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'products/index'
 
   resource :bag, only: [:show]
-  resources :products, only: [:index]
+  resources :products
   resources :order_items, only: [:create, :update, :destroy]
 
   get 'bag_items/create'

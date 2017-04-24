@@ -1,2 +1,17 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+
+<div class="container">
+
+<h3 class="subtitle is-4 center">Products in your Pantry</h3>
+<div class="column">
+
+<div class="row">
+  <div class="column ">
+    <% @products.each do |product| %>
+      <%= render "products_row", product: product, bag_item: @bag_item %>
+    <% end %>
+    <hr>
+    <%= render 'products_add' %>
+  </div>
+</div>
+</div>
+</div>
