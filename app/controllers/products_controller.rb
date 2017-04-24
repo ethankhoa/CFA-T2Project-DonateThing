@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+
   def index
     @products = Product.all
     @bag_item = current_bag.bag_items.new
@@ -9,7 +10,23 @@ class ProductsController < ApplicationController
     @product.save
   end
 
+  def destroy
+    @product.destroy
+    respond_to do |format|
+      format.html { redirect_to products_url, notice: 'Product was successfully deleted.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def update
+    @product.update_attributes(product_params)
+  end
+
 private
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
   def product_params
     params.require(:product).permit(:name, :price)
   end

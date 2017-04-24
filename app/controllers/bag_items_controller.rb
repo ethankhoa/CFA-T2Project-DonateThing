@@ -20,7 +20,8 @@ class BagItemsController < ApplicationController
     @bag_items = @bag.bag_items
   end
 
-  private
+private
+
   def bag_item_params
     params.require(:bag_item).permit(:quantity, :product_id)
   end

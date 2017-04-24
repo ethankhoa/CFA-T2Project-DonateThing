@@ -1,18 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'products/index'
-
+  resources :products, only: [:index, :destroy]
   resource :bag, only: [:show]
-  resources :products
-  resources :order_items, only: [:create, :update, :destroy]
-
-  get 'bag_items/create'
-
-  get 'bag_items/update'
-
-  get 'bag_items/destroy'
-
-  get 'bags/show'
+  resources :bag_items, only: [:create, :update, :destroy]
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :orgs do

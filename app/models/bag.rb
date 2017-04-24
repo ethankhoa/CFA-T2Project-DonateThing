@@ -2,7 +2,7 @@ class Bag < ApplicationRecord
   belongs_to :user
   belongs_to :bag_status
   has_many :bag_items
-  before_create :set_bag_status
+  after_create :set_bag_status
   before_save :update_itemtotal
   before_save :update_total_cost
 

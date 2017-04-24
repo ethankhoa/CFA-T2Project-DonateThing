@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_one :address, :as => :addressable
   has_many :orgs
+  has_many :bags
 
   after_create :create_address
 

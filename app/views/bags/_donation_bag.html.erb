@@ -15,6 +15,6 @@
 
 <% else %>
   <% @bag_items.each do |bag_item| %>
-    <%= render 'bag/bag_row', bag_item: bag_item, show_total: true %>
+    <%= render 'bag_row', product: bag_item.product, bag_item: bag_item, show_total: true %>
   <% end %>
 <% end %>
