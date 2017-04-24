@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :products, only: [:index, :destroy]
+  resources :products, only: [:index, :create, :destroy, :update]
   resource :bag, only: [:show]
   resources :bag_items, only: [:create, :update, :destroy]
 
