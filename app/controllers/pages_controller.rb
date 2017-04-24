@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   before_action :set_current_user, only: [:dashboard]
   before_action :authenticate_user!, :except => [:home, :about, :contact]
-  
+
   def home
   end
 

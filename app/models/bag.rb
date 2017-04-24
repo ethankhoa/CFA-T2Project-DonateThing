@@ -11,8 +11,8 @@ class Bag < ApplicationRecord
   end
 
   private
-  def set_order_status
-    self.order_status_id = 1
+  def set_bag_status
+    self.bag_status_id = 1
   end
 
   def update_itemtotal
