@@ -1,22 +1,48 @@
 class BagItem < ApplicationRecord
   belongs_to :bag
+  belongs_to :product
 
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
 
+  validate :product_present
   validate :product_present
   validate :bag_present
 
   before_save :finalize
 
+  def unit_price
+    if persisted?
+      self[:unit_price]
+    else
+      product.price
+    end
+  end
+
   def total_quantity
     quantity
   end
 
+  def total_price
+    unit_price * quantity
+  end
+
   private
+
+  def product_present
+    if product.nil?
+      errors.add(:product, "is not valid or is not active.")
+    end
+  end
 
   def bag_present
     if bag.nil?
       errors.add(:bag, "is not a valid bag.")
     end
   end
+
+  def finalize
+    self[:unit_price] = unit_price
+    self[:total_price] = quantity * self[:unit_price]
+  end
+
 end

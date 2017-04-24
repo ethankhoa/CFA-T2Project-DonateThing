@@ -22,6 +22,6 @@ class BagItemsController < ApplicationController
 
   private
   def bag_item_params
-    params.require(:bag_item).permit(:quantity)
+    params.require(:bag_item).permit(:quantity, :product_id)
   end
 end
