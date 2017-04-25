@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170425041336) do
+ActiveRecord::Schema.define(version: 20170425051359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,12 @@ ActiveRecord::Schema.define(version: 20170425041336) do
     t.index ["bag_item_id"], name: "index_donation_bags_on_bag_item_id", using: :btree
     t.index ["bag_status_id"], name: "index_donation_bags_on_bag_status_id", using: :btree
     t.index ["user_id"], name: "index_donation_bags_on_user_id", using: :btree
+  end
+
+  create_table "donation_statuses", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "orgs", force: :cascade do |t|
