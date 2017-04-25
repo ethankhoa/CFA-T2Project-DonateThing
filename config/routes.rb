@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :create, :destroy, :update]
   resource :bag, only: [:show, :new, :create]
 
-
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :orgs do
     get 'dashboard'

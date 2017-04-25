@@ -15,7 +15,7 @@ class User < ApplicationRecord
   after_create :create_address
 
   def create_address
-    @user.address = Address.new if @user.address.nil?
+    @address = Address.new 
   end
 
   def create_donation_bag
