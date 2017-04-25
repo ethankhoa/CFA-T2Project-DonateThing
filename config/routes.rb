@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  resources 'donations'
-
+  resources :donations
+  resources :bag_items
   resources :donation_bags do
     resources :bag_items, only: [:create, :update, :destroy]
   end

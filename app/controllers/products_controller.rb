@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.save
-    redirect_to products_path
+    redirect_to request.referer || root_path
   end
 
   def destroy
@@ -31,7 +31,7 @@ private
   end
 
   def product_params
-    params.require(:product).permit(:name, :price)
+    params.require(:product).permit(:user_id, :name, :description)
   end
 
 end

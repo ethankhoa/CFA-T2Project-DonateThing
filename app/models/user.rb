@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :bags
   has_many :donation_bags
   has_many :donations
+  has_many :products
 
   after_create :create_address
 
