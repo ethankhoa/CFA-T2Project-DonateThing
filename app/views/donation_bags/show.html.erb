@@ -2,12 +2,12 @@
 <%= @donation_bag.bag_items.first.quantity %>
 <p>
   <strong>User:</strong>
-  <%= @donation_bag.user %>
+  <%= @donation_bag.user.name %>
 </p>
 
 <p>
   <strong>Bag status:</strong>
-  <%= @donation_bag.bag_status %>
+  <%= @donation_bag.bag_status.name %>
 </p>
 
 <p>

@@ -1,16 +1,26 @@
 class DonationsController < ApplicationController
     before_action :set_donation, only: [:show, :edit, :update, :destroy]
+    before_action :set_current_user, only: [:create, :new, :destroy, :update]
 
   def new
     @donation = Donation.new
+    # @donation_bag = DonationBag.find(params[:id])
+    @donation_bags_inprogress = DonationBag.where(:user => current_user, :bag_status => 1)
+    @donation_bag = @donation_bags_inprogress.first
+    @orgs = Org.all
+    @donation_statuses = DonationStatus.all
   end
 
   def create
     @donation = Donation.new(donation_params)
-    @donation_bag = DonationBag.find(params[:id])
+    redirect_to request.referer || root_path
+
   end
 
   def donations
+  end
+
+  def show
   end
 
   def update
@@ -23,6 +33,7 @@ class DonationsController < ApplicationController
         format.json { render json: @donation.errors, status: :unprocessable_entity }
       end
     end
+  end
 
   def destroy
     @donation.destroy
@@ -40,6 +51,11 @@ private
 
   def donation_params
     params.require(:donation).permit(:user_id, :donation_status_id, :donation_bag_id, :org_id)
+  end
+
+
+  def set_current_user
+    @user = current_user
   end
 
 end

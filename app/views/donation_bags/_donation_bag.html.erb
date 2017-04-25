@@ -1,0 +1,65 @@
+<h3 class="subtitle is-4 center">Donation Bag</h3>
+<% if @donation_bags_inprogress.empty? %>
+<p>You don't have any open donation bags.</p> <p>Would you like to create a new one?</p>
+<%= form_for :donation_bag, url: donation_bags_path do |f| %>
+<%= link_to 'Create', donation_bags_path, class: 'button' %>
+
+<div class="actions">
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :bag_status_id, value: 1 %>
+  <%= f.hidden_field :total_quantity, value: 0 %>
+  <%= f.submit %>
+</div>
+<% end %>
+<% else %>
+
+<% @donation_bags_inprogress.each do |bag| %>
+
+<p>Bag Status: <%= bag.bag_status.name %></p>
+</br>
+<table class="table">
+  <thead>
+
+<tr>
+
+
+  <th>Product</th>
+  <th>Description</th>
+  <th>Qty</th>
+  <th></th>
+  </tr>
+    </thead>
+
+<% bag.bag_items.each do |item| %>
+<tbody>
+
+
+<tr>
+
+
+<td><%= item.product.name %></td>
+<td><%= item.product.description %></td>
+<td><%= item.quantity %></td>
+<td><%= link_to 'Remove', [bag, item], { data: { confirm: "Are you sure you wish to remove the product '#{item.product.name}' from your donation?" }, method: :delete, class: "button is-danger is-small" } %>
+</td>
+<% end %>
+
+</tr>
+</tbody>
+</table>
+</br>
+  <p>
+ Total Items in Donation Bag: <%= bag.total_quantity %>
+  </p>
+  <% if bag.total_quantity >= 5 %>
+  <div class="notification is-success">
+    <button class="delete" onclick="((this).parentNode.remove())"></button>
+    Your bag is ready to be donated! You can create a new donation or continue to add items to you bag and create a new donation when you're ready.
+  </div>
+
+  <% end %>
+
+  <%= link_to 'Create a New Donation', new_donation_path, class: 'button is-primary' %>
+
+ <% end %>
+<% end %>

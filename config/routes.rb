@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'donations/create'
-
-  get 'donations/new'
-
-  get 'donations/donations'
-
+  resources :donations
+  resources :bag_items
   resources :donation_bags do
     resources :bag_items, only: [:create, :update, :destroy]
   end
@@ -30,6 +26,10 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   get 'pages/contact'
+  get 'pages/map'
+  get 'pages/messages'
+  get 'pages/notifications'
+  get 'pages/donate'
 
   get 'pages/about'
 

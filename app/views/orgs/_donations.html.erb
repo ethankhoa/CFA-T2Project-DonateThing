@@ -1,0 +1,22 @@
+All Donations
+<table class="table is-narrow">
+  <thead>
+    <tr>
+      <th>Donation ID</th>
+      <th>Created</th>
+      <th>User</th>
+      <th>Donation Bag ID</th>
+      <th>Donation Status</th>
+    </tr>
+  </thead>
+<% @org.donations.each do |donation| %>
+
+<%= donation.inspect %>
+</br>
+<td><%= link_to "#{donation.id}", donation_path(id: donation.id) %></td>
+<td><%= donation.created_at.strftime("%d/%m/%Y") %></td>
+<td><%= link_to "#{donation.user.name}", user_path(id: donation.user_id) %> </td>
+<td><%= link_to "#{donation.donation_bag_id}", donation_path(id: donation.id) %> View</td>
+<td><%= donation.donation_status.name %> Update</td>
+</table>
+<% end %>

@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+<%= @donation.id %>
+<p>
+  <strong>User:</strong>
+  <%= @donation.user.name %>
+</p>
+
+<p>
+  <strong>Bag status:</strong>
+  <%= @donation.donation_status.name %>
+</p>
+
+<p>
+  <strong>Donated Items</strong>
+  <% @donation.donation_bag.bag_items.each do |bag_item| %>
+  <%= bag_item.product.name %><%= bag_item.quantity %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_donation_path(@donation) %> |
+<%= link_to 'Back', donation_path %>

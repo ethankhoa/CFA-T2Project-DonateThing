@@ -1,0 +1,7 @@
+<h3 class="subtitle is-4 center">Products in your Pantry</h3>
+
+    <% @products.each do |product| %>
+      <%= render "products/products_row", product: product %>
+    <% end %>
+    <hr>
+    <%= render 'products/products_add' %>

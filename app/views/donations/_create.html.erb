@@ -1,0 +1,29 @@
+<% @donation_bags_inprogress.each do |bag| %>
+
+<p>Bag Status:
+  <%= bag.bag_status.name %></p>
+</br>
+<table class="table is-narrow">
+<thead>
+  <tr>
+
+    <th>Product</th>
+    <th>Description</th>
+    <th>Qty</th>
+    <th></th>
+  </tr>
+</thead>
+
+<% bag.bag_items.each do |item| %>
+<tbody>
+
+  <tr>
+
+    <td><%= item.product.name %></td>
+    <td><%= item.product.description %></td>
+    <td><%= item.quantity %></td>
+    <% end %>
+    <% end %>
+  </tr>
+</tbody>
+</table>
