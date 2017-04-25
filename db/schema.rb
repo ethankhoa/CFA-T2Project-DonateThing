@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170425051359) do
+ActiveRecord::Schema.define(version: 20170425054322) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,19 @@ ActiveRecord::Schema.define(version: 20170425051359) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "donations", force: :cascade do |t|
+    t.integer  "donation_status_id"
+    t.integer  "user_id"
+    t.integer  "org_id"
+    t.integer  "donation_bag_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["donation_bag_id"], name: "index_donations_on_donation_bag_id", using: :btree
+    t.index ["donation_status_id"], name: "index_donations_on_donation_status_id", using: :btree
+    t.index ["org_id"], name: "index_donations_on_org_id", using: :btree
+    t.index ["user_id"], name: "index_donations_on_user_id", using: :btree
+  end
+
   create_table "orgs", force: :cascade do |t|
     t.string   "name"
     t.string   "org_type"
@@ -136,5 +149,9 @@ ActiveRecord::Schema.define(version: 20170425051359) do
   add_foreign_key "donation_bags", "bag_items"
   add_foreign_key "donation_bags", "bag_statuses"
   add_foreign_key "donation_bags", "users"
+  add_foreign_key "donations", "donation_bags"
+  add_foreign_key "donations", "donation_statuses"
+  add_foreign_key "donations", "orgs"
+  add_foreign_key "donations", "users"
   add_foreign_key "orgs", "users"
 end
