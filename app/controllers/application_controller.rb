@@ -1,5 +1,15 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  helper_method :current_bag
+
+  def current_bag
+    if !session[:donation_bag_id].nil?
+      DonationBag.find(session[:donation_bag_id])
+    # else
+      # Bag.create
+    end
+  end
+
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected

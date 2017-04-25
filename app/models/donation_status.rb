@@ -1,0 +1,2 @@
+class DonationStatus < ApplicationRecord
+end

@@ -1,0 +1,6 @@
+<% if @bag.errors.any? || @bag_item.errors.any? %>
+
+alert("not valid.")
+<% else %>
+  $(".bag-text").html("<%= escape_javascript(render 'bag_text') %>")
+<% end %>

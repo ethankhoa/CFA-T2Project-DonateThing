@@ -1,0 +1,20 @@
+<% if !@bag_item.nil? && @bag_item.errors.any? %>
+  <div class="alert alert-danger">
+    <ul>
+    <% @bag_item.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<% if @bag_items.size == 0 %>
+  <p class="text-center">
+    There are no items in your donation bag.  Please  and add some items to your donation bag.
+  </p>
+  <%= link_to "Go Back", root_path, class: "button" %>
+
+<% else %>
+  <% @bag_items.each do |bag_item| %>
+    <%= render 'bag_row', product: bag_item.product, bag_item: bag_item, show_total: true %>
+  <% end %>
+<% end %>

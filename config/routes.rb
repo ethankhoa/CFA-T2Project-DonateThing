@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  get 'donations/create'
+
+  get 'donations/new'
+
+  get 'donations/donations'
+
+  resources :donation_bags do
+    resources :bag_items, only: [:create, :update, :destroy]
+  end
+  resources :products, only: [:index, :create, :destroy, :update]
+  resource :bag, only: [:show, :new, :create]
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :orgs do
     get 'dashboard'
