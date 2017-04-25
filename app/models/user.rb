@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
 
+         include ActivityNotification::Target
+  acts_as_target email: :email, email_allowed: :confirmed_at
+
   has_one :address, :as => :addressable
   has_many :orgs
   has_many :bags
