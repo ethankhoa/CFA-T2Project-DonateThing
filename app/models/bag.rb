@@ -1,8 +1,11 @@
 class Bag < ApplicationRecord
   belongs_to :user
-  belongs_to :bag_status
+  before_validation :set_bag_status
   has_many :bag_items
-  after_create :set_bag_status
+
+
+  belongs_to :bag_status
+
   before_save :update_itemtotal
   before_save :update_total_cost
 
@@ -16,8 +19,9 @@ class Bag < ApplicationRecord
 
   private
   def set_bag_status
-    self.bag_status_id = 1
+    self.bag_status_id = 1 if self.bag_status_id.nil?
   end
+
 
   def update_itemtotal
     self[:itemtotal] = total_items

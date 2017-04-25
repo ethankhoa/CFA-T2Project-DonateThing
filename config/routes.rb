@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
+  resources :donation_bags do
+    resources :bag_items, only: [:create, :update, :destroy]
+  end
   resources :products, only: [:index, :create, :destroy, :update]
-  resource :bag, only: [:show]
-  resources :bag_items, only: [:create, :update, :destroy]
+  resource :bag, only: [:show, :new, :create]
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :orgs do

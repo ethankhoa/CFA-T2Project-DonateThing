@@ -3,10 +3,10 @@ class ApplicationController < ActionController::Base
   helper_method :current_bag
 
   def current_bag
-    if !session[:bag_id].nil?
-      Bag.find(session[:bag_id])
-    else
-      Bag.new
+    if !session[:donation_bag_id].nil?
+      DonationBag.find(session[:donation_bag_id])
+    # else
+      # Bag.create
     end
   end
 

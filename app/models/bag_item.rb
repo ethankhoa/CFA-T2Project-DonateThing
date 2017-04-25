@@ -1,11 +1,11 @@
 class BagItem < ApplicationRecord
   belongs_to :product
-  belongs_to :bag
+  belongs_to :donation_bag
 
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
 
-  validate :product_present
-  validate :bag_present
+  # validate :product_present
+  # validate :bag_present
 
   before_save :finalize
 

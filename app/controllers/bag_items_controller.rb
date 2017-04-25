@@ -1,23 +1,24 @@
 class BagItemsController < ApplicationController
+
   def create
-    @bag = current_bag
-    @bag_item = @bag.bag_items.new(bag_item_params)
-    @bag.save
-    session[:bag_id] = @bag.id
+    @donation_bag = current_bag
+    @bag_item = @donation_bag.bag_items.new(bag_item_params)
+    @donation_bag.save
+    session[:donation_bag_id] = @donation_bag.id
   end
 
   def update
-    @bag = current_bag
-    @bag_item = @bag.bag_items.find(params[:id])
+    @donation_bag = current_bag
+    @bag_item = @donation_bag.bag_items.find(params[:id])
     @bag_item.update_attributes(bag_item_params)
-    @bag_items = @bag.bag_items
+    @ag_items = @donation_bag.bag_items
   end
 
   def destroy
     @bag = current_bag
-    @bag_item = @bag.bag_items.find(params[:id])
+    @bag_item = @donation_bag.bag_items.find(params[:id])
     @bag_item.destroy
-    @bag_items = @bag.bag_items
+    @bag_items = @donation_bag.bag_items
   end
 
 private
@@ -25,4 +26,6 @@ private
   def bag_item_params
     params.require(:bag_item).permit(:quantity, :product_id)
   end
+
+
 end

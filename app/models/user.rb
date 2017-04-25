@@ -7,13 +7,18 @@ class User < ApplicationRecord
   has_one :address, :as => :addressable
   has_many :orgs
   has_many :bags
+  has_many :donation_bags
 
   after_create :create_address
 
   def create_address
     @user.address = Address.new if @user.address.nil?
-
   end
+
+  def create_donation_bag
+    Bag.new
+  end
+
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
