@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :create, :destroy, :update]
   resource :bag, only: [:show, :new, :create]
 
-  notify_to :users, with_devise: :users
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :orgs do
