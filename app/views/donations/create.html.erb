@@ -1,2 +1,9 @@
-<h1>Donations#create</h1>
-<p>Find me in app/views/donations/create.html.erb</p>
+<%= render 'create' %>
+
+
+<%= form_for :donation, url: donations_path do |f| %>
+<%= f.hidden_field :user_id, :value => current_user.id %>
+<%= f.label :name, class: "label" %>
+<%= f.submit "Submit", class: "button is-primary" %>
+<%= link_to "Cancel", root_path, class: "button is-danger" %>
+<% end %>
