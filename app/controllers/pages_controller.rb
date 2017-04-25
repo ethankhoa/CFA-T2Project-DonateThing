@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :set_current_user, only: [:dashboard]
+  before_action :set_current_user, only: [:dashboard, :map, :notifications, :messages]
   before_action :authenticate_user!, :except => [:home, :about, :contact]
 
   def home
@@ -9,6 +9,18 @@ class PagesController < ApplicationController
   end
 
   def about
+  end
+
+  def notifications
+  end
+
+  def messages
+  end
+
+  def donate
+  end
+
+  def map
   end
 
   def dashboard

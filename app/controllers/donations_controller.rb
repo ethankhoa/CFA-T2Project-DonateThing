@@ -13,6 +13,9 @@ class DonationsController < ApplicationController
   def donations
   end
 
+  def show
+  end
+
   def update
     respond_to do |format|
       if @donation.update(booking_params)
@@ -23,6 +26,7 @@ class DonationsController < ApplicationController
         format.json { render json: @donation.errors, status: :unprocessable_entity }
       end
     end
+  end
 
   def destroy
     @donation.destroy
