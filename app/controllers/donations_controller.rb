@@ -1,6 +1,6 @@
 class DonationsController < ApplicationController
     before_action :set_donation, only: [:show, :edit, :update, :destroy]
-    before_action :set_current_user, only: [:create, :new, :destroy, :update]
+    before_action :set_current_user, only: [:create, :new, :destroy, :update, :index]
 
   def new
     @donation = Donation.new
@@ -18,6 +18,10 @@ class DonationsController < ApplicationController
   end
 
   def donations
+  end
+
+  def index
+    @donations = Donation.where(:user => current_user)
   end
 
   def show

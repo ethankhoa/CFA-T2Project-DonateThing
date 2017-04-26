@@ -63,14 +63,8 @@
             <button class="delete" onclick="((this).parentNode.remove())"></button>
             You have a pick up coming soon. If you need to make adjustments please contact your local food pantry.
           </div> -->
-          <div class="box">
-            <% if @user.orgs.any? %>
-            <%= link_to "#{@user.orgs.first.name}", org_dashboard_path(org_id: @user.orgs.first.id) %>
-            <%= @user.orgs.first.name %>
-            <%= @user.orgs.first.id %>
-            <% end %>
-          </div>
-          <div class="box">
+
+          <div class="box has-text-centered">
             <h1 class="bag-text"><%= render 'bags/bag_text' %></h1>
           </div>
           <div class="box">

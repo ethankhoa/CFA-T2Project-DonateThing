@@ -1,4 +1,11 @@
-You currently have <%#= current_bag.bag_items.size %> items in your donation bag <%= link_to "Add Stuff", products_path , class: "button is-primary" %>
+<% if @donation_bag.nil? %>
+Looks like you don't have a bag set up. Let's create one!
+</br>
+<p>
+<%= link_to "Create", pages_donate_path , class: "button is-primary" %>
+</p>
+<% else %>
 
-<%= @donation_bag.inspect %>
-<%= @donation_bag.inspect %>
+You currently have <%= @donation_bag.total_quantity %> items in your donation bag.  <%= link_to "Add Stuff", pages_donate_path , class: "button is-primary is-pulled-right" %>
+
+<% end %>

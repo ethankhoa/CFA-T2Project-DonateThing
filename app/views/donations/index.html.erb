@@ -1,0 +1,5 @@
+<%= render 'partials/nav/user' %>
+
+<% @donations.each do |donation| %>
+<%= donation.donation_status_id %>
+<% end %>

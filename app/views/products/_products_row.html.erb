@@ -14,7 +14,10 @@
             <%= f.hidden_field :product_id, value: product.id %>
             <%= f.hidden_field :donation_bag_id, value: @donation_bag.id %>
             <%= f.submit "Add to Bag", class: "button is-primary is-small" %>
-            <%#= link_to "Delete", product, { data: { confirm: "Are you sure you wish to delete the product '#{product.name}' from your pantry?" }, method: :delete, class: "button is-danger is-small" } %>
+
+            <%= link_to "Remove", product, { data: { confirm: "Are you sure you wish to remove the product '#{product.name}' from your pantry?" }, method: :put, class: "button is-danger is-small" } %>
+
+            <%#= link_to "Remove", product, { data: { confirm: "Are you sure you wish to delete the product '#{product.name}' from your pantry?" }, method: :delete, class: "button is-danger is-small" } %>
 
             </p>
           </div>

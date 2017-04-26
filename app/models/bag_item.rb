@@ -7,7 +7,7 @@ class BagItem < ApplicationRecord
   # validate :product_present
   # validate :bag_present
 
-  before_save :finalize
+  # before_save :finalize
 
   def unit_price
     if persisted?

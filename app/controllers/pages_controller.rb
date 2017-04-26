@@ -29,6 +29,8 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @donation_bags_inprogress = DonationBag.where(:user => current_user, :bag_status => 1)
+    @donation_bag = @donation_bags_inprogress.first
   end
 
   private
