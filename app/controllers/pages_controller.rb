@@ -31,6 +31,7 @@ class PagesController < ApplicationController
   def dashboard
     @donation_bags_inprogress = DonationBag.where(:user => current_user, :bag_status => 1)
     @donation_bag = @donation_bags_inprogress.first
+    @donation_bags = Product.where(:user => current_user)
   end
 
   private
