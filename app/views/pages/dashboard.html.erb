@@ -112,13 +112,15 @@
                  Bags
                </p>
                <%# @donation_bags.each do |bag| %>
-                <a class="panel-block is-fullwidth">
+                <a class="panel-block">
+
                   <% if @donation_bag.nil? %>
                    "No bags yet but they'll show up here when you create one!"
                    <% else %>
-                  Donation Bag ID <%= @donation_bag.id %> - <%= @donation_bag.bag_status.name %>
+                   <p class="control">
+                  Bag ID <%= @donation_bag.id %> - <%= @donation_bag.bag_status.name %></p>
 
-                  <div class="button is-info">View</div>
+                  <p class="control level-right"><span class="button is-info">View</span></p>
 
               </a>
                 <% end %>

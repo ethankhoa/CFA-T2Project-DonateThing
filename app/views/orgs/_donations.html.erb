@@ -10,13 +10,26 @@ All Donations
     </tr>
   </thead>
 <% @org.donations.each do |donation| %>
+<%= @org.donations.inspect %>
+<% if @org.donations.nil? %>
+<tr>
 
-<%= donation.inspect %>
-</br>
+
+<td>No donations yet!</td>
+</tr>
+<% else %>
+<tbody>
+
+
+<tr>
 <td><%= link_to "#{donation.id}", donation_path(id: donation.id) %></td>
 <td><%= donation.created_at.strftime("%d/%m/%Y") %></td>
 <td><%= link_to "#{donation.user.name}", user_path(id: donation.user_id) %> </td>
 <td><%= link_to "#{donation.donation_bag_id}", donation_path(id: donation.id) %> View</td>
 <td><%= donation.donation_status.name %> Update</td>
-</table>
+</tr>
 <% end %>
+<% end %>
+</tbody>
+
+</table>
