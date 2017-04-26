@@ -14,7 +14,9 @@
     <li>
       Manage Your Orgs
       <ul>
-        <li><%= link_to "#{@user.orgs.first.name}", org_dashboard_path(org_id: @user.orgs.first.id) %></li>
+        <% @user.orgs.each do |org| %>
+        <li><%= link_to "#{org.name}", org_dashboard_path(org_id: org.id) %></li>
+        <% end %>
       </ul>
     </li>
     <% end %>
