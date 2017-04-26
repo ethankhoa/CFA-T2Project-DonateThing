@@ -56,10 +56,10 @@
     <button class="delete" onclick="((this).parentNode.remove())"></button>
     Your bag is ready to be donated! You can create a new donation or continue to add items to you bag and create a new donation when you're ready.
   </div>
+  <%= link_to 'Create a New Donation', new_donation_path, class: 'button is-primary' %>
 
   <% end %>
 
-  <%= link_to 'Create a New Donation', new_donation_path, class: 'button is-primary' %>
 
  <% end %>
 <% end %>
