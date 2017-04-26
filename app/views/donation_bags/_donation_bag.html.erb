@@ -2,13 +2,11 @@
 <% if @donation_bags_inprogress.empty? %>
 <p>You don't have any open donation bags.</p> <p>Would you like to create a new one?</p>
 <%= form_for :donation_bag, url: donation_bags_path do |f| %>
-<%= link_to 'Create', donation_bags_path, class: 'button' %>
-
 <div class="actions">
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.hidden_field :bag_status_id, value: 1 %>
   <%= f.hidden_field :total_quantity, value: 0 %>
-  <span class="button"><%= f.submit %></span>
+  <%= f.submit "Create", class: "button is-primary" %>
 </div>
 <% end %>
 <% else %>

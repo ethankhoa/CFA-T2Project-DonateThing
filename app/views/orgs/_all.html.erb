@@ -1,5 +1,11 @@
 <% @orgs.each do |org| %>
+<nav class="panel">
+  <div class="panel-block" %>
 <%= org.name %>
 <%= org.org_type %>
 <%= org.website %>
+<%= link_to "View", org, class: "button is-info" %>
+</div>
+
 <% end %>
+</nav>

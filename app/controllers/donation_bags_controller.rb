@@ -29,7 +29,7 @@ class DonationBagsController < ApplicationController
     @donation_bag.user_id = current_user.id
     respond_to do |format|
       if @donation_bag.save
-        format.html { redirect_to pages_donate_path, notice: 'Donation bag was successfully created.' }
+        format.html { redirect_to request.referer || root_path, notice: 'Donation bag was successfully created.' }
         format.json { render :show, status: :created, location: @donation_bag }
       else
         format.html { render :new }

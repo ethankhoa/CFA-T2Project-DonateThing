@@ -1,44 +1,133 @@
 <p id="notice"><%= notice %></p>
+<%= render 'partials/nav/user' %>
+<div class="container is-fluid profile">
+  <div class="section profile-heading">
+    <div class="columns is-multiline">
+      <div class="column is-2">
+        <div class="image is-128x128 avatar">
+          <img src="<%= @org.logo %>">
+        </div>
+      </div>
+      <div class="column is-4 name">
 
-<p>
-  <strong>Name:</strong>
-  <%= @org.name %>
-</p>
+        <p>
+          <span class="title is-bold"><%= @org.name %></span>
+        </p>
 
-<p>
-  <strong>Org type:</strong>
-  <%= @org.org_type %>
-</p>
+        <p>
+          <strong>Org type:</strong>
+          <%= @org.org_type %>
+        </p>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @org.phone %>
-</p>
+        <p>
+          <strong>Phone:</strong>
+          <%= @org.phone %>
+        </p>
 
-<p>
-  <strong>Website:</strong>
-  <%= @org.website %>
-</p>
+        <p>
+          <strong>Website:</strong>
+          <%= link_to @org.website %>
+        </p>
 
-<p>
-  <strong>Logo:</strong>
-  <%= @org.logo %>
-</p>
 
-<p>
-  <strong>Images:</strong>
-  <%= @org.images %>
-</p>
 
-<p>
-  <strong>User:</strong>
-  <%= @org.user.inspect %>
-</p>
 
-<p>
-  <strong>Googleplaceid:</strong>
-  <%= @org.googleplaceid %>
-</p>
+        <span class="button is-primary is-outlined follow">Message</span>
 
-<%= link_to 'Edit', edit_org_path(@org) %> |
-<%= link_to 'Back', orgs_path %>
+      </div>
+
+      <div class="column is-2 followers has-text-centered">
+        <p class="stat-val">129k</p>
+        <p class="stat-key">saved</p>
+      </div>
+      <div class="column is-2 following has-text-centered">
+        <p class="stat-val">2k</p>
+        <p class="stat-key">saved</p>
+      </div>
+      <div class="column is-2 likes has-text-centered">
+        <p class="stat-val">29</p>
+        <p class="stat-key">donations</p>
+      </div>
+    </div>
+
+  </div>
+  <div class="profile-options">
+    <div class="tabs is-fullwidth">
+      <ul>
+        <li class="link is-active">
+          <a>
+            <span class="icon">
+              <i class="fa fa-shopping-bag"></i>
+            </span>
+            <span>
+              Bags</span>
+          </a>
+        </li>
+        <li class="link">
+          <a>
+            <span class="icon">
+              <i class="fa fa-heart"></i>
+            </span>
+            <span>Following</span>
+          </a>
+        </li>
+        <li class="link">
+          <a>
+            <span class="icon">
+              <i class="fa fa-th"></i>
+            </span>
+            <span>Donations</span>
+          </a>
+        </li>
+        <li class="link">
+          <a>
+            <span class="icon">
+              <i class="fa fa-bookmark"></i>
+            </span>
+            <span>Bookmarks</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="box">
+    <nav class="level">
+      <!-- Left side -->
+      <div class="level-left">
+        <div class="level-item">
+          <p class="subtitle is-5 is-vcentered">
+            <strong>123</strong>
+            bags
+          </p>
+        </div>
+        <div class="level-item">
+          <p class="control has-addons">
+            <input class="input" type="text" placeholder="Find a donation">
+          </p>
+          <p>
+            <button class="button">Search</button>
+          </p>
+        </div>
+      </div>
+      <!-- Right side -->
+      <div class="level-right">
+        <p class="level-item">
+          <strong>All</strong>
+        </p>
+        <p class="level-item">
+          <a>Completed</a>
+        </p>
+        <p class="level-item">
+          <a>Pending</a>
+        </p>
+        <p class="level-item">
+          <a>Deleted</a>
+        </p>
+        <p class="level-item">
+          <a class="button is-success">New</a>
+        </p>
+      </div>
+    </nav>
+
+  </div>
+</div>
