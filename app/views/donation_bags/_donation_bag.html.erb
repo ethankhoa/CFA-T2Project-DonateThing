@@ -8,7 +8,7 @@
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.hidden_field :bag_status_id, value: 1 %>
   <%= f.hidden_field :total_quantity, value: 0 %>
-  <%= f.submit %>
+  <span class="button"><%= f.submit %></span>
 </div>
 <% end %>
 <% else %>
