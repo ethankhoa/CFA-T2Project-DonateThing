@@ -1,6 +1,27 @@
 # DonateThing
 
 ## Summary
+### Problem
+####Dealing with Food Insecurity
+
+Feeding people through decreasing food waste and increasing efficiency.
+
+Issues
+Food security is about making sure all people have access to enough safe and nutritious food for an active and healthy lifestyle.
+
+
+### Solution
+#### Digital Food Donation Bag
+
+Linking individuals with food parcel distributors, community kitchens, churches, charities.
+
+Help organisations manage donation pickups more effectively and communicate needs to local residents more effectively, be smarter and be more effective at distributions, coordinate manage run food drives.
+
+Tap into the individual household pantry, commercial orgs have processes in place ozharvest does similar for commercial
+
+
+
+
 
 
 ### Design Process

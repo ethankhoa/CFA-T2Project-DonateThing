@@ -22,7 +22,7 @@
 Which Org would you like to donate to?
 <div class="field">
 <span class="select">
-<%= f.select :org_id, options_for_select(@orgs.collect{ |u| [u.name, u.id] }) %>
+<%= f.select :org_id, options_for_select(@orgs.collect{ |o| [o.name, o.id] }) %>
 </span>
 </div>
 How would you like to have your donation delivered. You can request a pick up or notify that you will drop off your donation.
