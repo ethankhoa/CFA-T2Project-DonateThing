@@ -2,7 +2,7 @@
 
 ## Summary
 ### Problem
-####Dealing with Food Insecurity
+#### Dealing with Food Insecurity
 
 Feeding people through decreasing food waste and increasing efficiency.
 
