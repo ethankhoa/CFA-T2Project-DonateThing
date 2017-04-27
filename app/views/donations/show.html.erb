@@ -1,21 +1,81 @@
+<%= render 'partials/nav/donations' %>
+</br>
+<div class="container is-fluid">
+<div class="columns is-multiline">
+  <div class="column is-12">
+    <h4 class="subtitle">Donation Summary</h4>
+  </div>
+    <div class="column">
+
+<div class="box">
+
 <p id="notice"><%= notice %></p>
-<%= @donation.id %>
 <p>
-  <strong>User:</strong>
+  <h4 class="subtitle is-9">Donation Summary</h4>
+
+
+  <strong>Name</strong>
   <%= @donation.user.name %>
 </p>
+<p>
+  <strong>Email:</strong>
+  <%= @donation.user.email %>
+</p>
 
 <p>
-  <strong>Bag status:</strong>
+  <strong>Donation status:</strong>
   <%= @donation.donation_status.name %>
 </p>
-
+<hr>
 <p>
-  <strong>Donated Items</strong>
-  <% @donation.donation_bag.bag_items.each do |bag_item| %>
-  <%= bag_item.product.name %><%= bag_item.quantity %>
-  <% end %>
+  <%= link_to "View Profile", user_path(id: @donation.user.id), class: "button is-info" %>
+  <%= link_to "Message", user_path(id: @donation.user.id), class: "button is-primary" %>
 </p>
+</div>
+</div>
 
-<%= link_to 'Edit', edit_donation_path(@donation) %> |
-<%= link_to 'Back', donation_path %>
+<div class="column">
+
+<div class="box">
+
+  <strong>Donated Items</strong>
+
+  <table class="table">
+
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Description</th>
+        <th>Qty</th>
+
+
+</tr>
+    </thead>
+    <tbody>
+      <% @donation.donation_bag.bag_items.each do |bag_item| %>
+
+      <tr>
+        <td><%= bag_item.product.name.titleize %></td>
+        <td><%= bag_item.product.description %></td>
+        <td><%= bag_item.quantity %></td>
+  <% end %>
+</tr>
+
+</tbody>
+
+    </table>
+
+    <nav class="panel">
+      <div class="panel-block">
+        <p class="control">Total Donated Items</p>
+        <strong><p class="control"><%= @donation.donation_bag.total_quantity %></strong></p>
+      </div>
+
+    </nav>
+
+<!-- <%= link_to 'Edit', edit_donation_path(@donation) %> |
+<%= link_to 'Back', donation_path %> -->
+</div>
+</div>
+</div>
+</div>

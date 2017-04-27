@@ -13,7 +13,8 @@ class DonationsController < ApplicationController
 
   def create
     @donation = Donation.new(donation_params)
-    redirect_to request.referer || root_path
+    format.html { redirect_to @donation, notice: 'Your was successfully created.' }
+    format.json { render :show, status: :created, location: @donation }
 
   end
 
