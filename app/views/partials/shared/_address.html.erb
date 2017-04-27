@@ -1,17 +1,16 @@
-<h3 class="title">Contact Details</h3>
 
-<h3 class="subtitle">Current Details</h3>
+<h3 class="dark-font subtitle">Current Address</h3>
 <% if address_check %>
 HEY man! Are you homeless? Update your address!
 <% else %>
-<p>
-<%= @user.address.line_1 %></br>
+<div class="dark-font">
+<h1><%= @user.address.line_1 %></br></h1>
 <%= @user.address.line_2.html_safe + tag(:br) unless @user.address.line_2.nil?%>
 <%= @user.address.city %>
 <%= @user.address.state %>
 <%= @user.address.postcode %></br>
   T: <%= @user.address.telephone %></br>
-</p>
+</div>
 <% end %>
 </br>
 
@@ -51,7 +50,7 @@ HEY man! Are you homeless? Update your address!
 <% end %>
 
 <hr>
-<h3 class="subtitle">Current Phone Number</h3>
+<h3 class="dark-font">Current Phone Number</h3>
 <% if phone_check %>
 I KNOW YOU HAVE A CELL PHONE, UPDATE YOUR PHONE NUMBER
 <% else %>
