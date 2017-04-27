@@ -7,10 +7,10 @@ All Donations
       <th>User</th>
       <th>Donation Bag ID</th>
       <th>Donation Status</th>
+      <th></th>
     </tr>
   </thead>
 <% @org.donations.each do |donation| %>
-<%= @org.donations.inspect %>
 <% if @org.donations.nil? %>
 <tr>
 
@@ -25,8 +25,12 @@ All Donations
 <td><%= link_to "#{donation.id}", donation_path(id: donation.id) %></td>
 <td><%= donation.created_at.strftime("%d/%m/%Y") %></td>
 <td><%= link_to "#{donation.user.name}", user_path(id: donation.user_id) %> </td>
-<td><%= link_to "#{donation.donation_bag_id}", donation_path(id: donation.id) %> View</td>
-<td><%= donation.donation_status.name %> Update</td>
+<td><%= link_to "#{donation.donation_bag_id}", donation_path(id: donation.id) %> </td>
+<td>
+  <span class="tag is-primary"><%= donation.donation_status.name %></span>
+</td>
+<td><%= link_to "View", donations_path, class: "button is-success is-small" %>
+<%= link_to "Update", donations_path, class: "button is-info is-small" %></td>
 </tr>
 <% end %>
 <% end %>
