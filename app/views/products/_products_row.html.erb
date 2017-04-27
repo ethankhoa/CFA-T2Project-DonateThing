@@ -2,7 +2,7 @@
   <div class="columns">
     <div class="column">
 
-      <h4 class="is-9"><%= product.name %></h4>
+      <h4 class="is-9"><%= product.name.titleize %></h4>
       <%= product.description %>
       <%= form_for :bag_item, url: bag_items_path do |f| %>
       <div class="field">

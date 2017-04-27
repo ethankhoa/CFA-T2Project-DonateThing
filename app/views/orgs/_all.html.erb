@@ -1,11 +1,24 @@
-<% @orgs.each do |org| %>
 <nav class="panel">
+  <p class="panel-heading">
+    Orgs in your area
+  </p>
+  <% @orgs.each do |org| %>
+
   <div class="panel-block" %>
-<%= org.name %>
-<%= org.org_type %>
-<%= org.website %>
-<%= link_to "View", org, class: "button is-info" %>
-</div>
+    <p class="control">
+        <span class="media image is-4x3 is-64x64">
+          <img src="<%= org.logo %>">
+        </span>
+      </p>
+    <p class="control">
+      <strong><%= org.name %></strong></br>
+      <%= org.org_type %></br>
+      <%= org.website %>
+    </p>
+    <p class="control level-right">
+      <%= link_to "View", org, class: "button is-info" %>
+    </p>
+  </div>
 
 <% end %>
 </nav>

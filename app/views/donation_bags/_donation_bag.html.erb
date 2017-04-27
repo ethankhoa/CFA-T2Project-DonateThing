@@ -35,7 +35,7 @@
 <tr>
 
 
-<td><%= item.product.name %></td>
+<td><%= item.product.name.titleize %></td>
 <td><%= item.product.description %></td>
 <td><%= item.quantity %></td>
 <td><%= link_to 'Remove', [bag, item], { data: { confirm: "Are you sure you wish to remove the product '#{item.product.name}' from your donation?" }, method: :delete, class: "button is-danger is-small" } %>
@@ -47,9 +47,10 @@
 </table>
 </br>
   <p>
- Total Items in Donation Bag: <%= bag.total_quantity %>
+ <strong>Total Items in Donation Bag:</strong> <%= bag.total_quantity %>
   </p>
   <% if bag.total_quantity >= 5 %>
+</br>
   <div class="notification is-success">
     <button class="delete" onclick="((this).parentNode.remove())"></button>
     Your bag is ready to be donated! You can create a new donation or continue to add items to you bag and create a new donation when you're ready.

@@ -6,48 +6,45 @@
 
 <div class="columns">
 
-<div class="column is-8">
-  <div class="box">
+  <div class="column is-8">
+    <div class="box">
 
-  <%= render 'create' %>
-</div>
+      <%= render 'create' %>
+    </div>
 
+    <div class="box">
 
-<div class="box">
+      <%= form_for :donation, url: donations_path do |f| %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.hidden_field :donation_bag_id, :value => @donation_bag.id %>
 
-<%= form_for :donation, url: donations_path do |f| %>
-<%= f.hidden_field :user_id, :value => current_user.id %>
-<%= f.hidden_field :donation_bag_id, :value => @donation_bag.id %>
+      Which Org would you like to donate to?
+      <div class="field">
+        <span class="select">
+          <%= f.select :org_id, options_for_select(@orgs.collect{ |o| [o.name, o.id] }) %>
+        </span>
+      </div>
+      How would you like to have your donation delivered. You can request a pick up or notify that you will drop off your donation.
+      <div class="field">
+        <span class="select">
 
-Which Org would you like to donate to?
-<div class="field">
-<span class="select">
-<%= f.select :org_id, options_for_select(@orgs.collect{ |o| [o.name, o.id] }) %>
-</span>
-</div>
-How would you like to have your donation delivered. You can request a pick up or notify that you will drop off your donation.
-<div class="field">
-<span class="select">
+          <%= select_tag(:donation_status_id, options_for_select([['Request Pick up', 2], ['Drop off', 4]]))%>
+        </span>
+      </div>
 
-<%= select_tag(:donation_status_id, options_for_select([['Request Pick up', 2], ['Drop off', 4]]))%>
-</span></div>
+      <p class="control">
+        <%= f.submit "Submit", class: "button is-primary" %>
+        <%= link_to "Cancel", root_path, class: "button is-danger" %>
+      </p>
+      <% end %>
+    </div>
 
-<p class="control">
-<%= f.submit "Submit", class: "button is-primary" %>
-<%= link_to "Cancel", root_path, class: "button is-danger" %>
-</p>
-<% end %>
-</div>
+  </div>
+  <div class="column is-4">
 
+      <%= render 'orgs/all' %>
 
-</div>
-<div class="column is-4">
-  <div class="box">
-
-<%= render 'orgs/all' %>
-</div>
-
-</div>
+  </div>
 </div>
 </div>
 </section>
