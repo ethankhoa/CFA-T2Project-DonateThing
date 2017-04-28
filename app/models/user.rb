@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
 
+  acts_as_messageable
 
   has_one :address, :as => :addressable
   has_many :orgs
@@ -15,11 +16,19 @@ class User < ApplicationRecord
   after_create :create_address
 
   def create_address
-    @address = Address.new 
+    @address = Address.new
   end
 
   def create_donation_bag
     Bag.new
+  end
+
+  def name
+    "User #{id}"
+  end
+
+  def mailboxer_email(object)
+    nil
   end
 
 
