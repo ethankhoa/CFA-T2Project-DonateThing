@@ -3,7 +3,7 @@
 <% @conversation.receipts_for(current_user).each do |receipt| %>
 
 <div>
-  <%= receipt.message.sender.name %>
+  <%= receipt.message.sender.username %>
   <p><%= receipt.message.body %></p>
 </div>
 
