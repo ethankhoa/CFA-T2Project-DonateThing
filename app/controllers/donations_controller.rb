@@ -13,8 +13,17 @@ class DonationsController < ApplicationController
 
   def create
     @donation = Donation.new(donation_params)
-    format.html { redirect_to @donation, notice: 'Your was successfully created.' }
-    format.json { render :show, status: :created, location: @donation }
+    @donation.user_id = current_user.id
+
+    respond_to do |format|
+      if @donation.save
+        format.html { redirect_to @donation, notice: 'Your donation was successfully created.' }
+        format.json { render :show, status: :created, location: @donation }
+      else
+        format.html { render :new }
+        format.json { render json: @donation.errors, status: :unprocessable_entity }
+      end
+    end
 
   end
 

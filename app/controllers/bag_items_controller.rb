@@ -2,7 +2,7 @@ class BagItemsController < ApplicationController
   before_action :set_bag_item, only: [:destroy, :update]
 
   def new
-  @bag_item = BagItem.new
+    @bag_item = BagItem.new
   end
 
   def create

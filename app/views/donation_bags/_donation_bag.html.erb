@@ -26,6 +26,7 @@
     <th>Description</th>
     <th>Qty</th>
     <th></th>
+    
   </tr>
 </thead>
 
@@ -45,17 +46,17 @@
 </tbody>
 </table>
 </br>
-<p>
-<strong>Total Items in Donation Bag:</strong>
-<%= bag.total_quantity %>
-</p>
+  <p>
+    <strong>Total Items in Donation Bag:</strong>
+    <%= bag.total_quantity %>
+  </p>
 <% if bag.total_quantity >= 5 %>
-</br>
-<div class="notification is-success">
-<button class="delete" onclick="((this).parentNode.remove())"></button>
-Your bag is ready to be donated! You can create a new donation or continue to add items to you bag and create a new donation when you're ready.
-</div>
-<%= link_to 'Create a New Donation', new_donation_path, class: 'button is-primary' %>
+  </br>
+  <div class="notification is-success">
+    <button class="delete" onclick="((this).parentNode.remove())"></button>
+    Your bag is ready to be donated! You can create a new donation or continue to add items to you bag and create a new donation when you're ready.
+  </div>
+  <%= link_to 'Create a New Donation', new_donation_path, class: 'button is-primary' %>
 
 <% end %>
 
